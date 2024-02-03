@@ -1,7 +1,7 @@
 function Curriculum({ anotherObj }) {
     return (
         <div className="curriculumDiv">
-            {anotherObj.value}
+            {anotherObj.name + " " + anotherObj.surname + " " + anotherObj.phone}
         </div>
     )
 }

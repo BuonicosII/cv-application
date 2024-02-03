@@ -3,7 +3,7 @@ import { CurriculumForm } from './CurriculumForm'
 import { Curriculum } from './Curriculum'
 
 function App() {
-  const [curriculum, setCurriculum] = useState({ name: "Winston", surname: "Churchill", value: 'someValue'})
+  const [curriculum, setCurriculum] = useState({ name: "Winston", surname: "Churchill", phone: 'someValue'})
 
   return (
     <>
