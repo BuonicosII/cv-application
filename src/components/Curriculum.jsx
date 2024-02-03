@@ -1,6 +1,6 @@
 function Curriculum({ anotherObj }) {
     return (
-        <div>
+        <div className="curriculumDiv">
             {anotherObj.value}
         </div>
     )

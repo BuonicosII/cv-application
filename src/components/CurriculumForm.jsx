@@ -9,9 +9,11 @@ function CurriculumForm({ someObj, someFn }) {
     }
 
     return (
-        <form>
-            <input onChange={formSubmit} value={someObj.value}></input>
-        </form>
+        <div className="curriculumDiv">
+            <form>
+                <input onChange={formSubmit} value={someObj.value}></input>
+            </form>
+        </div>
     )
 }
 
