@@ -3,6 +3,7 @@ import { useState } from 'react'
 function BioForm ({someObj, someFn}) {
 
     const [bio, setBio] = useState(someObj)
+    const [editable, setEditable] = useState(false)
 
     function formUpdate(e) {
     
@@ -36,9 +37,11 @@ function BioForm ({someObj, someFn}) {
         }
     
         someFn(newObj)
+        setEditable(false)
     }
 
-    return (
+    if (editable === true) {
+        return (
             <form onSubmit={formSubmit}>
                 <label htmlFor="name">Name</label>
                 <input onChange={formUpdate} id="name" name="name" value={bio.name}></input>
@@ -55,6 +58,26 @@ function BioForm ({someObj, someFn}) {
                 <button type='submit'>Submit</button>
             </form>
             )
+    } else {
+        return (
+            <div>
+                <label htmlFor="name">Name</label>
+                <input onChange={formUpdate} id="name" name="name" value={bio.name} disabled></input>
+                <label htmlFor="surname">Surname</label>
+                <input onChange={formUpdate} id="surname" name="surname" value={bio.surname} disabled></input>
+                <label htmlFor="born">Born</label>
+                <input onChange={formUpdate} id="born" name="born" value={bio.born} disabled></input>
+                <label htmlFor="address">Address</label>
+                <input onChange={formUpdate} id="address" name="address" value={bio.address} disabled></input>
+                <label htmlFor="phone">Phone</label>
+                <input onChange={formUpdate} id="phone" name="phone" value={bio.phone} disabled></input>
+                <label htmlFor="email">E-Mail</label>
+                <input onChange={formUpdate} id="email" name="email" value={bio.email} disabled></input>
+                <button onClick={()=> {setEditable(true)}}>Edit</button>
+            </div>
+        )
+    }
+
 
 }
 
