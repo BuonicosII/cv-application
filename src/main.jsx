@@ -9,7 +9,7 @@ const winChurch = {
   surname: "Churchill", 
   phone: 44123123,
   email: "w.churchill@notrealmail.uk",
-  born: new Date(1874, 11, 30),
+  born: new Date(1874, 10, 30),
   address: "10 Downing Street, London UK"
 }
 
