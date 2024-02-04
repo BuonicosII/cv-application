@@ -2,8 +2,9 @@ import { useState } from 'react'
 import { CurriculumForm } from './CurriculumForm'
 import { Curriculum } from './Curriculum'
 
-function App() {
-  const [curriculum, setCurriculum] = useState({ name: "Winston", surname: "Churchill", phone: 'someValue'})
+
+function App({ obj }) {
+  const [curriculum, setCurriculum] = useState(obj)
 
   return (
     <>
@@ -13,4 +14,4 @@ function App() {
   )
 }
 
-export default App
+export { App }
