@@ -37,6 +37,7 @@ body {
 	line-height: 1;
     width: 100vw;
     height: 100vh;
+    background-color: rgb(233, 232, 232);
 }
 
 input {
@@ -100,7 +101,25 @@ table {
     display: flex;
     flex-direction: column;
     gap: 1vh;
-    padding: 1vh;
+    background-color: white;
+}
+
+.formTitle {
+    background-color: white;
+    font-size: larger;
+    font-weight: bold;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.formAndTitleHolder {
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    border-radius: 1vh;
+    padding: 2vh;
+    gap: 2vh;
 }
 
 .formInputField {
@@ -109,3 +128,18 @@ table {
     flex-direction: column;
 }
 
+.formDiv button {
+    appearance: none;
+    border-radius: 5px;
+    border: none;
+    background-color: rgb(0, 89, 255);
+    padding: 1vh;
+    width: 10vh;
+    align-self: center;
+    color: white;
+    font-size: large;
+}
+
+.formDiv button:hover {
+    filter: brightness(120%);
+}

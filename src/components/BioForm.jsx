@@ -5,6 +5,7 @@ function BioForm ({someObj, someFn}) {
 
     const [bio, setBio] = useState(someObj)
     const [editable, setEditable] = useState(false)
+    const [collapsed, setCollapsed] = useState(true);
 
     function formUpdate(e) {
     
@@ -43,8 +44,11 @@ function BioForm ({someObj, someFn}) {
 
     if (editable === true) {
         return (
-            <>
-                <h2>Biographic Info</h2>
+            <div className='formAndTitleHolder'>
+                <div className='formTitle'>
+                    <h2>Biographic Info</h2>
+                    <button onClick={() => {alert("Submit the form first!")}}>Toggle</button>
+                </div>
                 <form className="formDiv" onSubmit={formSubmit}>
                     <div className='formInputField'>
                         <label htmlFor="name">Name</label>
@@ -72,13 +76,16 @@ function BioForm ({someObj, someFn}) {
                     </div>
                     <button type='submit'>Submit</button>
                 </form>
-            </>
+            </div>
 
             )
-    } else {
+    } else if (editable === false && collapsed === false) {
         return (
-            <>
-                <h2>Biographic Info</h2>
+            <div className='formAndTitleHolder'>
+                <div className='formTitle'>
+                    <h2>Biographic Info</h2>
+                    <button onClick={()=>{setCollapsed(true)}}>Toggle</button>
+                </div>
                 <div className='formDiv'>
                     <div className='formInputField'>
                         <label htmlFor="name">Name</label>
@@ -106,8 +113,17 @@ function BioForm ({someObj, someFn}) {
                     </div>
                     <button onClick={()=> {setEditable(true)}}>Edit</button>
                 </div>
-            </>
+            </div>
 
+        )
+    } else {
+        return (
+            <div className='formAndTitleHolder'>
+                <div className='formTitle' onClick={()=>{setCollapsed(false)}}>
+                    <h2>Biographic Info</h2>
+                    <button onClick={()=>{setCollapsed(false)}}>Toggle</button>
+                </div>
+            </div>
         )
     }
 
