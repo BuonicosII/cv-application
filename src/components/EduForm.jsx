@@ -1,13 +1,35 @@
 import { useState } from 'react'
-import { format, parseISO } from "date-fns"
 
 function EduExperience ({ someObj, someFn, index}) {
+
+    const [degree, setDegree] = useState(someObj.education[index])
+
+    function formUpdate(e) {
+
+        e.preventDefault()
+
+        const newDegree = {
+            from: e.target.parentNode.from.value,
+            to: e.target.parentNode.to.value,
+            institution: e.target.parentNode.institution.value,
+            info: e.target.parentNode.info.value
+        }
+
+        setDegree(newDegree)
+    }
 
     function degreeSubmit(e) {
 
         e.preventDefault()
 
-        const newDegree = {institution: "liceo copernico"}
+        console.log(e.target)
+
+        const newDegree = {
+            from: e.target.from.value,
+            to: e.target.to.value,
+            institution: e.target.institution.value,
+            info: e.target.info.value
+        }
 
         someObj.education[index] = newDegree;
 
@@ -20,13 +42,13 @@ function EduExperience ({ someObj, someFn, index}) {
     return (
         <form onSubmit={degreeSubmit}>
             <label htmlFor="from">From</label>
-            <input type='date' name='from' id='from'></input>
+            <input onChange={formUpdate}name='from' id='from' value={degree.from}></input>
             <label htmlFor="to">To</label>
-            <input type='date' name='to' id='to'></input>
+            <input onChange={formUpdate}name='to' id='to' value={degree.to}></input>
             <label htmlFor="institution">Institution</label>
-            <input name='institution' id='institution' value={someObj.education[index].institution}></input>
+            <input onChange={formUpdate} name='institution' id='institution' value={degree.institution}></input>
             <label htmlFor="info">From</label>
-            <input name='info' id='info' value={someObj.education[index].info}></input>
+            <input onChange={formUpdate} name='info' id='info' value={degree.info}></input>
             <button type='submit'>Submit</button>
         </form>
     )

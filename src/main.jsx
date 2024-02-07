@@ -14,8 +14,8 @@ const winChurch = {
   education: [
     {
       institution: "Royal Military College Sandhurst",
-      from: new Date("1893"),
-      to: new Date("1895"),
+      from: "1893",
+      to: "1895",
       info: "Served as cavalry cadet",
     }
   ]
