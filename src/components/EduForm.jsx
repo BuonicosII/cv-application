@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { v4 as uuidv4 } from 'uuid';
 
 function EduExperience ({ someObj, someFn, index, statusFn, status}) {
 
@@ -9,6 +10,7 @@ function EduExperience ({ someObj, someFn, index, statusFn, status}) {
         e.preventDefault()
 
         const newDegree = {
+            ...degree,
             from: e.target.parentNode.parentNode.from.value,
             to: e.target.parentNode.parentNode.to.value,
             institution: e.target.parentNode.parentNode.institution.value,
@@ -18,11 +20,21 @@ function EduExperience ({ someObj, someFn, index, statusFn, status}) {
         setDegree(newDegree)
     }
 
+    function degreeRemove() {
+
+        someObj.education.splice(index, 1)
+
+        someFn({
+            ...someObj,
+            education: someObj.education.map(someDegree => someDegree)})
+    }
+
     function degreeSubmit(e) {
 
         e.preventDefault()
 
         const newDegree = {
+            ...degree,
             from: e.target.from.value,
             to: e.target.to.value,
             institution: e.target.institution.value,
@@ -79,6 +91,7 @@ function EduExperience ({ someObj, someFn, index, statusFn, status}) {
                     <label htmlFor="info">About</label>
                     <input onChange={formUpdate} name='info' id='info' value={degree.info} disabled></input>
                 </div>
+                <button onClick={degreeRemove}>Remove</button>
                 <button onClick={() => {statusFn(index)}}>Edit</button>
             </div>
         )
@@ -108,7 +121,7 @@ function EduForm ({someObj, someFn}) {
             </div>
         {!collapsed && someObj.education.map((degree, index) => {
             return (
-                <EduExperience someObj={someObj} someFn={someFn} index={index} statusFn={setStatus} status={status} ></EduExperience> //remember to add key here!
+                <EduExperience key={degree.id} someObj={someObj} someFn={someFn} index={index} statusFn={setStatus} status={status} ></EduExperience> //remember to add key here!
                 )
         })}
         </div>

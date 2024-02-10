@@ -2,6 +2,7 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 import { App } from './components/App.jsx'
 import './styles/style.css'
+import { v4 as uuidv4 } from 'uuid';
 
 
 const winChurch = {
@@ -12,13 +13,15 @@ const winChurch = {
   born: new Date(1874, 10, 30),
   address: "10 Downing Street, London UK",
   education: [
-    {
+    { 
+      id: uuidv4(),
       institution: "Harrow School",
       from: "1886",
       to: "1890",
       info: "I was on the whole considerably discouraged by my school days.",
     },
     {
+      id: uuidv4(),
       institution: "Royal Military College Sandhurst",
       from: "1893",
       to: "1895",
