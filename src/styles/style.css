@@ -131,7 +131,7 @@ table {
     flex-direction: column;
 }
 
-.formDiv button {
+.formDivBtn {
     appearance: none;
     border-radius: 5px;
     border: none;
@@ -145,4 +145,33 @@ table {
 
 .formDiv button:hover {
     filter: brightness(120%);
+}
+
+.deleteBtn {
+    background-color: rgb(179, 47, 47);
+    padding: 1vh;
+    width: 10vh;
+    align-self: center;
+    color: white;
+    font-size: large;
+    appearance: none;
+    border-radius: 5px;
+    border: none;
+}
+
+.buttonDiv {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.newDegreeFormHolder {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.363);
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

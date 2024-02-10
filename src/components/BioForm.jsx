@@ -74,7 +74,7 @@ function BioForm ({someObj, someFn}) {
                         <label htmlFor="email">E-Mail</label>
                         <input type="email" onChange={formUpdate} id="email" name="email" value={bio.email}></input>
                     </div>
-                    <button type='submit'>Submit</button>
+                    <button className="formDivBtn" type='submit'>Submit</button>
                 </form>
             </div>
 
@@ -111,7 +111,7 @@ function BioForm ({someObj, someFn}) {
                         <label htmlFor="email">E-Mail</label>
                         <input type="email" onChange={formUpdate} id="email" name="email" value={bio.email} disabled></input>
                     </div>
-                    <button onClick={()=> {setEditable(true)}}>Edit</button>
+                    <button className="formDivBtn" onClick={()=> {setEditable(true)}}>Edit</button>
                 </div>
             </div>
 

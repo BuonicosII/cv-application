@@ -1,6 +1,55 @@
 import { useState } from 'react'
 import { v4 as uuidv4 } from 'uuid';
 
+function NewEduExperience ({ someObj, someFn, addingFn}) {
+
+    function addDegree(e) {
+        e.preventDefault();
+
+        const newDegree = {
+            id: uuidv4(),
+            from: e.target.from.value,
+            to: e.target.to.value,
+            institution: e.target.institution.value,
+            info: e.target.info.value
+        }
+
+        someObj.education.push(newDegree);
+
+        someFn({
+            ...someObj,
+            education: someObj.education.map(someDegree => someDegree)})
+
+        addingFn(false)
+    }
+
+    return (
+        <div className='newDegreeFormHolder'>
+            <div className='formAndTitleHolder'>
+                <form className="formDiv" onSubmit={addDegree}>
+                    <div className='formInputField'>
+                        <label htmlFor="from">From</label>
+                        <input name='from' id='from'></input>
+                    </div>
+                    <div className='formInputField'>
+                        <label htmlFor="to">To</label>
+                        <input name='to' id='to'></input>
+                    </div>
+                    <div className='formInputField'>
+                        <label htmlFor="institution">Institution</label>
+                        <input name='institution' id='institution'></input>
+                    </div>
+                    <div className='formInputField'>
+                        <label htmlFor="info">About</label>
+                        <input name='info' id='info'></input>
+                    </div>
+                    <button className="formDivBtn" type='submit'>Submit</button>
+                </form>
+            </div>
+        </div>
+    )
+}
+
 function EduExperience ({ someObj, someFn, index, statusFn, status}) {
 
     const [degree, setDegree] = useState(someObj.education[index])
@@ -69,7 +118,7 @@ function EduExperience ({ someObj, someFn, index, statusFn, status}) {
                     <label htmlFor="info">About</label>
                     <input onChange={formUpdate} name='info' id='info' value={degree.info}></input>
                 </div>
-                <button type='submit'>Submit</button>
+                <button className="formDivBtn" type='submit'>Submit</button>
             </form>
         )
     } else {
@@ -91,8 +140,11 @@ function EduExperience ({ someObj, someFn, index, statusFn, status}) {
                     <label htmlFor="info">About</label>
                     <input onChange={formUpdate} name='info' id='info' value={degree.info} disabled></input>
                 </div>
-                <button onClick={degreeRemove}>Remove</button>
-                <button onClick={() => {statusFn(index)}}>Edit</button>
+                <div className='buttonDiv'>
+                    <button className="deleteBtn" onClick={degreeRemove}>Remove</button>
+                    <button className="formDivBtn" onClick={() => {statusFn(index)}}>Edit</button>
+                </div>
+
             </div>
         )
     }
@@ -103,7 +155,8 @@ function EduExperience ({ someObj, someFn, index, statusFn, status}) {
 function EduForm ({someObj, someFn}) {
 
     const [collapsed, setCollapsed] = useState(true);
-    const [status, setStatus] = useState(undefined)
+    const [status, setStatus] = useState(undefined);
+    const [addingDegree, setAddingDegree] = useState(false)
 
     function toggleCollapse() {
         if (status !== undefined) {
@@ -124,6 +177,8 @@ function EduForm ({someObj, someFn}) {
                 <EduExperience key={degree.id} someObj={someObj} someFn={someFn} index={index} statusFn={setStatus} status={status} ></EduExperience> //remember to add key here!
                 )
         })}
+        <button onClick={() => {setAddingDegree(true)}}>Add new</button>
+        {addingDegree && <NewEduExperience someObj={someObj} someFn={someFn} addingFn={setAddingDegree}></NewEduExperience>}
         </div>
     )
 }
