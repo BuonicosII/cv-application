@@ -95,6 +95,9 @@ table {
     height: 100%;
     width: 30%;
     padding: 2vh;
+    gap: 2vh;
+    display: flex;
+    flex-direction: column;
 }
 
 .formDiv {

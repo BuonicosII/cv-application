@@ -13,10 +13,16 @@ const winChurch = {
   address: "10 Downing Street, London UK",
   education: [
     {
+      institution: "Harrow School",
+      from: "1886",
+      to: "1890",
+      info: "I was on the whole considerably discouraged by my school days.",
+    },
+    {
       institution: "Royal Military College Sandhurst",
       from: "1893",
       to: "1895",
-      info: "Served as cavalry cadet",
+      info: "It shows that I could learn quickly the things that matter.",
     }
   ]
 }
