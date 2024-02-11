@@ -175,3 +175,25 @@ table {
     justify-content: center;
     align-items: center;
 }
+
+.popUp {
+    display: flex;
+    flex-direction: column;
+    gap: 2vh;
+    background-color: white;
+    padding: 2vh;
+    width: 30%;
+    border-radius: 1vh;
+}
+
+.addNewBtn {
+    background-color: rgb(255, 255, 255);
+    padding: 1vh;
+    width: 10vh;
+    align-self: center;
+    color: rgb(0, 89, 255);
+    font-size: large;
+    appearance: none;
+    border-radius: 5px;
+    border: 2px solid rgb(0, 89, 255);
+}

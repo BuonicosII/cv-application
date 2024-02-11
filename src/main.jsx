@@ -27,6 +27,22 @@ const winChurch = {
       to: "1895",
       info: "It shows that I could learn quickly the things that matter.",
     }
+  ],
+  experience: [
+    {
+      id: uuidv4(),
+      role: "First Lord of the Admiralty",
+      from: "1911",
+      to: "1915",
+      info: "Lead with mixed success the Straits Campaign"
+    },
+    {
+      id: uuidv4(),
+      role: "Prime Minister",
+      from: "1940",
+      to: "1945",
+      info: "Lead the UK and the Allies to Victory in WW2"
+    }
   ]
 }
 

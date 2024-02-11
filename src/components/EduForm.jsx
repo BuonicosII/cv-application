@@ -25,8 +25,7 @@ function NewEduExperience ({ someObj, someFn, addingFn}) {
 
     return (
         <div className='newDegreeFormHolder'>
-            <div className='formAndTitleHolder'>
-                <form className="formDiv" onSubmit={addDegree}>
+                <form className="popUp" onSubmit={addDegree}>
                     <div className='formInputField'>
                         <label htmlFor="from">From</label>
                         <input name='from' id='from'></input>
@@ -43,9 +42,12 @@ function NewEduExperience ({ someObj, someFn, addingFn}) {
                         <label htmlFor="info">About</label>
                         <input name='info' id='info'></input>
                     </div>
-                    <button className="formDivBtn" type='submit'>Submit</button>
+                    <div className='buttonDiv'>
+                        <button className='deleteBtn' onClick={()=> {addingFn(false)}}>Cancel</button>
+                        <button className="formDivBtn" type='submit'>Submit</button>
+                    </div>
+
                 </form>
-            </div>
         </div>
     )
 }
@@ -177,7 +179,7 @@ function EduForm ({someObj, someFn}) {
                 <EduExperience key={degree.id} someObj={someObj} someFn={someFn} index={index} statusFn={setStatus} status={status} ></EduExperience> //remember to add key here!
                 )
         })}
-        <button onClick={() => {setAddingDegree(true)}}>Add new</button>
+        {!collapsed && <button className='addNewBtn' onClick={() => {setAddingDegree(true)}}>+ Add new</button>}
         {addingDegree && <NewEduExperience someObj={someObj} someFn={someFn} addingFn={setAddingDegree}></NewEduExperience>}
         </div>
     )
