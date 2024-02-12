@@ -29,8 +29,15 @@ footer, header, hgroup, menu, nav, section {
 	display: block;
 }
 
+@font-face {
+    font-family: 'MyFont';
+    src: url('../assets/Montserrat-Medium.ttf');
+    font-weight: 500;
+    font-style: normal;
+}
+
 html {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'MyFont';
 }
 
 body {
@@ -87,6 +94,10 @@ table {
     height: 100%;
     width: 30%;
     padding: 2vh;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    gap: 2vh;
 } 
 
 .formHolder {
@@ -100,7 +111,7 @@ table {
     flex-direction: column;
 }
 
-.formDiv {
+.formDiv, .biographyDiv {
     display: flex;
     flex-direction: column;
     gap: 1vh;
@@ -125,7 +136,7 @@ table {
     gap: 2vh;
 }
 
-.formInputField {
+.formInputField, .curriculumLabelandData {
     display: flex;
     gap: 5px;
     flex-direction: column;
@@ -196,4 +207,47 @@ table {
     appearance: none;
     border-radius: 5px;
     border: 2px solid rgb(0, 89, 255);
+}
+
+.curriculumDiv h1 {
+    font-size: x-large;
+    font-weight: bold;
+    align-self: center;
+}
+
+.curriculumDiv h2 {
+    font-size: larger;
+    font-weight: bold;
+}
+
+.label {
+    font-size: 0.9rem;
+    font-weight: bold;
+}
+
+.contactInfoDiv {
+    display: flex;
+    justify-content: space-between;
+}
+
+.dateLabel {
+    font-size: 0.9rem;
+}
+
+.infoDiv {
+    display: flex;
+    flex-direction: column;
+    gap: 1vh;
+}
+
+.experience {
+    font-size: medium ;
+    font-weight: bold;
+}
+
+.experienceBox {
+    display: flex;
+    flex-direction: column;
+    gap: 2vh;
+    background-color: white;
 }
